@@ -1,0 +1,31 @@
+{
+    "name": "klamo/profiling-system",
+    "description": "The external profiling system created for klamo.eu",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "orchestra/testbench": "^6.21",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Klamo\\ProfilingSystem\\": "src/",
+            "Klamo\\ProfilingSystem\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+       "psr-4": {
+           "Klamo\\ProfilingSystem\\Tests\\": "tests/"
+       } 
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+      },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Klamo\\ProfilingSystem\\ProfilingServiceProvider"
+            ]
+        }
+    }
+}

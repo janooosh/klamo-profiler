@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Klamo\ProfilingSystem\Models\ProductProfile;
+use Klamo\ProfilingSystem\Models\ProfilingTag;
+
+class AddWeightfactorToProfilingTags extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('profiling_tags', function (Blueprint $table) {
+            $table->integer('weight_factor')->default(1);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('profiling_tags', function (Blueprint $table) {
+            $table->dropColumn(['weight_factor']);
+        });
+    }
+}
